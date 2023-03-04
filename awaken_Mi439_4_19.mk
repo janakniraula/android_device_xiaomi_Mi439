@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The LineageOS Project
+# Copyright (C) 2021 The AwakenOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -9,11 +9,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common AwakenOS stuff.
+$(call inherit-product, vendor/awaken/config/common_full_phone.mk)
 
 # Kernel
-TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_VERSION := 4.19
 
 # Inherit from Mi439 device
 $(call inherit-product, device/xiaomi/Mi439/device.mk)
@@ -23,9 +23,20 @@ PRODUCT_PACKAGES += \
     xiaomi_pine_overlay_lineage \
     xiaomi_olive_overlay_lineage
 
+# GAPPS
+TARGET_GAPPS_ARCH := arm64
+USE_GAPPS := true
+
+# Extras
+AWAKEN_BUILD_TYPE := official
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
+TARGET_INCLUDE_STOCK_ARCORE := true
+
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := Mi439
-PRODUCT_NAME := lineage_Mi439
+PRODUCT_DEVICE := Mi439_4_19
+PRODUCT_NAME := awaken_Mi439_4_19
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := SDM439
