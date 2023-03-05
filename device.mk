@@ -20,6 +20,10 @@ TARGET_USES_DEVICE_SPECIFIC_VIBRATOR := true
 $(call inherit-product, device/xiaomi/mithorium-common/mithorium.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+#Evolution-X overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-evolution \
+
 # Overlays
 PRODUCT_PACKAGES += \
     xiaomi_pine_overlay \
